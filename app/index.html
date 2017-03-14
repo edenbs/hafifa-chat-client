@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/client/bower_components/angular/angular.js"></script>
+    <script src="/client/app/app.js"></script>
+    <script src="/client/app/user.service.js"></script>
+    <script src="/client/app/user.controller.js"></script>
+    <!--<script src="/client/bower_components/angular-ui-router/release/angular-ui-router.js"></script>-->
+</head>
+<body ng-app="chatApp" ng-controller="Stam">
+    <div>
+        <div ng-repeat="user in users">
+            <span>ID: {{user.id}}</span>
+            <span>name: {{user.name}}</span>
+            <span>email: {{user.email}}</span>
+            <button ng-click="deleteUser($index)">delete</button>
+        </div>
+    </div>
+
+    <ng-form name="addForm">
+        <label>name: </label><input type="text" ng-model="user.name">
+        <label>email: </label><input type="text" ng-model="user.email">
+        <button ng-click="addUser()">Add</button>
+    </ng-form>
+</body>
+</html>
