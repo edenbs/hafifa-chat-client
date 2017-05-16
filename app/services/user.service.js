@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('chatApp').factory('UserService', ['$http', '$q', function($http, $q) {
-    var REST_SERVICE_URI = 'http://localhost:8080/chat-1.0/user';
+angular.module('chatApp').factory('userService', ['$http', '$q', 'config', function($http, $q, config) {
+    var REST_SERVICE_URI = config.serverUrl + '/user';
 
     var factory = {
       getAll: getAll,

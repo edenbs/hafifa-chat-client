@@ -1,0 +1,43 @@
+<md-content layout="row" flex="80" role="main" layout-align="center center">
+    <md-card flex="30">
+        <md-card-title layout="row" layout-align="center center" class="md-accent" md-colors="{background: 'teal-400'}">
+            <span class="md-headline" style="color: white !important;">Welcome to Chat!</span>
+        </md-card-title>
+        <md-card-content layout-margin>
+            <form name="registerForm" layout="column" layout-margin>
+                <md-input-container>
+                    <label>Email</label>
+                    <md-icon class="mdi mdi-email mdi-18px mdi-dark mdi-inactive"></md-icon>
+                    <input required ng-model="user.email" name="email" type="email">
+                    <div ng-messages="registerForm.email.$error" md-auto-hide="true">
+                        <div ng-message="required">You must enter an email</div>
+                        <div ng-message="email">Email is invalid</div>
+                    </div>
+                </md-input-container>
+                <md-input-container>
+                    <label>Username</label>
+                    <md-icon class="mdi mdi-account mdi-18px mdi-dark mdi-inactive"></md-icon>
+                    <input ng-model="user.username" name="username" required>
+                    <div ng-messages="registerForm.username.$error" md-auto-hide="true">
+                        <div ng-message="required">You must enter a username</div>
+                    </div>
+                </md-input-container>
+                <md-input-container>
+                    <label>Password</label>
+                    <md-icon class="mdi mdi-key-variant mdi-18px mdi-dark mdi-inactive"></md-icon>
+                    <input ng-model="user.password" type="password" name="password" ng-minlength="6" required>
+                    <div ng-messages="registerForm.password.$error" md-auto-hide="true">
+                        <div ng-message="required">You must enter a password</div>
+                        <div ng-message="md-minlength">Password must contain 6 chars at least</div>
+                    </div>
+                </md-input-container>
+            </form>
+        </md-card-content>
+        <md-card-actions layout="column" layout-align="center center" layout-margin>
+            <md-button class="md-raised md-primary" flex="50" flex-sm="100" ng-click="register()"
+                       ng-disabled="(registerForm.$dirty && registerForm.$invalid) || registerForm.$pristine">Register
+            </md-button>
+            <span class="md-caption">Already a user? <a ui-sref="login">login!</a></span>
+        </md-card-actions>
+    </md-card>
+</md-content>
